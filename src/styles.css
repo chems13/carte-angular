@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh; /* Permet au fond de couvrir tout l'écran tout en s'agrandissant si le contenu dépasse */
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 230, 255, 1) 0%,
+    rgba(230, 240, 255, 1) 50%,
+    rgba(245, 230, 255, 1) 100%
+  );
+  background-attachment: fixed; /* Maintient le dégradé fixe lors du défilement */
+}
