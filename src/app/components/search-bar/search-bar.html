@@ -1,6 +1,12 @@
 <div class="search-box">
-<img class="search-icon" src="img/search.svg" alt="Search" />
-<input id="live-search"  type="search" placeholder="Search..." />
-<button>Search</button>
-
+    <img src="img/search.svg" alt="Search">
+    <input 
+        id="live-search"  
+        type="search" 
+        placeholder="Search..."
+        autocomplete="off"
+        [ngModel]="search()"
+        (ngModelChange)="updateSearch($event)"
+    >
+    <button (click)="searchClicked()">Search</button>
 </div>

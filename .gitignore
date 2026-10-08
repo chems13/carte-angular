@@ -42,3 +42,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignorer les clés d'API et variables sensibles
+src/environments/environment.development.ts
+src/environments/environment.ts

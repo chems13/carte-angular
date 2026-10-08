@@ -1,10 +1,47 @@
 <header id="collection-header">
     <h1>My Collection</h1> 
-    <app-search-bar></app-search-bar>
-</header>
-<section class="collection-grid">
+    <div>
+        <app-search-bar
+         (searchButtonClicked)="increamentCount()"
+         [(search)]="searchText"
+         
+         >
+         </app-search-bar>
+         Clicked count : {{ count }} <br>
+         Search text : {{searchText}}
+    </div>
     
-<app-collection-item-card [item]="linx"></app-collection-item-card>
-<app-collection-item-card [item]="coin"></app-collection-item-card>
+</header>
 
+<section class="collection-grid">
+    <app-collection-item-card [item]="linx"></app-collection-item-card>
+    <app-collection-item-card [item]="coin"></app-collection-item-card>
+</section>
+
+
+
+
+
+
+<!-- Bloc Gemini -->
+<section class="gemini-section">
+    <h2>Demander à l'IA</h2>
+    
+    <div class="gemini-input-group">
+        <input 
+            type="text" 
+            [(ngModel)]="userPrompt" 
+            placeholder="Ex : Donne-moi des infos sur les pièces de 1972..."
+            (keyup.enter)="askGemini()"
+        />
+        <button (click)="askGemini()" [disabled]="isLoading()">
+            {{ isLoading() ? 'Analyse...' : 'Envoyer' }}
+        </button>
+    </div>
+
+    @if (aiResponse()) {
+        <div class="gemini-response">
+            <p>{{ aiResponse() }}</p>
+        </div>
+    }
 </section>
